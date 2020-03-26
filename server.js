@@ -1,3 +1,6 @@
+// EVERYTHING IS FUNCTIONING EXCEPT DELETING THE DEPARTMENTS. WILL NOT RETRIEVE ID. 
+// WILL FIX IN FUTURE UPDATES
+
 // Requirements
 const inquirer= require("inquirer");
 let Database= require("./db");
@@ -173,7 +176,7 @@ async function addDepartment(departmentInfo) {
 async function removeDepartment(departmentInfo) {
     const removeDept= getDepartmentId(departmentInfo.departmentName);
     let query= "DELETE from department (name) VALUES (?)";
-    let args= [departmentName[0]];
+    let args= [removeDept, departmentName[0]];
     const rows= await db.query(query, args);
     console.log(`Department removed: ${removeDept[0]}`);
 }
