@@ -1,8 +1,8 @@
-# [EmployeeTracker](https://asuleigh.github.io/EmployeeTracker/)
+# [Employee Tracker](https://asuleigh.github.io/EmployeeTracker/)
 Architect and build a solution for managing a company's employees using node, inquirer, and MySQL.
 
 ### Links
-[Developer Profile Generator](https://asuleigh.github.io/EmployeeTracker/)
+[Employee Tracker](https://asuleigh.github.io/EmployeeTracker/)
 <br>
 [GitHub Repo](https://github.com/asuleigh/EmployeeTracker)
 
