@@ -14,7 +14,7 @@ Architect and build a solution for managing a company's employees using node, in
 
 <hr>
 
-ABSTRACT: This is a simple employee tracker that uses node, inquirer, and a seeded mysql database to keep track of an employee database. This tracker seeks to allow for viewing, adding, and removing Departments, Employee Roles, Managers, and Employees. 
+ABSTRACT: This is a simple employee tracker that uses node, inquirer, and a seeded mysql database to keep track of an employee database. This applcation works from mySQL Workbench and the Terminal. The tracker seeks to allow for viewing, adding, and removing Departments, Employee Roles, Managers, and Employees. 
 
 <hr>
 
