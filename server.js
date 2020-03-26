@@ -171,11 +171,11 @@ async function addDepartment(departmentInfo) {
 
 // Sets up for removing an department
 async function removeDepartment(departmentInfo) {
-    const departmentName= departmentInfo.departmentName;
+    const removeDept= getDepartmentId(departmentInfo.departmentName);
     let query= "DELETE from department (name) VALUES (?)";
-    let args= [departmentName];
+    let args= [departmentName[0]];
     const rows= await db.query(query, args);
-    console.log(`Department removed: ${departmentName}`);
+    console.log(`Department removed: ${removeDept[0]}`);
 }
 
 // Sets up for adding a role
@@ -250,10 +250,9 @@ async function getAddInfo() {
         ])
 }
 
-// Functions for removing employees and departments
-async function getRemoveInfo() {
+// Function for removing employees
+async function getRemoveEmployeeInfo() {
     const employees= await getEmployeeNames();
-    const departments= await getDepartmentId();
     return inquirer
     .prompt([
         {
@@ -264,6 +263,15 @@ async function getRemoveInfo() {
                 ...employees
             ]
         },
+    ])
+}
+
+// Function for removing departments
+async function getRemoveDepartmentInfo() {
+    const departments= await getDepartmentId();
+    return inquirer
+    .prompt([
+    
         {
             type: "list",
             message: "Which department do you want to remove?",
@@ -274,7 +282,6 @@ async function getRemoveInfo() {
         }
     ])
 }
-
 // Function for adding new dept
 async function getDepartmentInfo() {
     return inquirer
@@ -352,8 +359,8 @@ async function main() {
             }
 
             case 'Remove department': {
-                const department = await getRemoveInfo();
-                await removeDepartment(department);
+                const removeDepartmentN = await getRemoveDepartmentInfo();
+                await removeDepartment(removeDepartmentN);
                 break;
             }
 
@@ -373,7 +380,7 @@ async function main() {
             }
 
             case 'Remove employee': {
-                const employee = await getRemoveInfo();
+                const employee = await getRemoveEmployeeInfo();
                 await removeEmployee(employee);
                 break;
             }
