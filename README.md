@@ -1,1 +1,3 @@
 # EmployeeTracker
+
+-https://www.w3schools.com/sql/sql_foreignkey.asp -https://www.w3schools.com/sql/sql_datatypes.asp -https://www.npmjs.com/package/mysql -https://www.npmjs.com/package/inquirer/v/0.2.3 -https://www.npmjs.com/package/console.table -https://sqlbolt.com/lesson/select_queries_with_constraints -https://fsprojects.github.io/SQLProvider/core/async.html -https://stackoverflow.com/questions/46132137/how-to-write-database-module-in-nodejs -https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises -https://developers.google.com/web/fundamentals/primers/promises -https://codeburst.io/node-js-mysql-and-promises-4c3be599909b
