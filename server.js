@@ -173,13 +173,13 @@ async function addDepartment(departmentInfo) {
 }
 
 // Sets up for removing an department
-async function removeDepartment(departmentInfo) {
-    const removeDept= getDepartmentId(departmentInfo.departmentName);
-    let query= "DELETE from department (name) VALUES (?)";
-    let args= [removeDept, departmentName[0]];
-    const rows= await db.query(query, args);
-    console.log(`Department removed: ${removeDept[0]}`);
-}
+// async function removeDepartment(departmentInfo) {
+//     const removeDept= getDepartmentId(departmentInfo.departmentName);
+//     let query= "DELETE from department (name) VALUES (?)";
+//     let args= [removeDept, departmentName[0]];
+//     const rows= await db.query(query, args);
+//     console.log(`Department removed: ${removeDept[0]}`);
+// }
 
 // Sets up for adding a role
 async function addRole(roleInfo) {
@@ -207,11 +207,11 @@ async function mainPrompt() {
                   "View all employees by department",
                   "View all roles",
                   "Add department",
-                  "Add employee",
                   "Add role",
-                  "Remove employee",
+                  "Add employee",
                   "Update employee role",
-                  "Remove department",
+                  "Remove employee",
+                //   "Remove department",
                   "Exit"
                 ]
             }
@@ -270,21 +270,22 @@ async function getRemoveEmployeeInfo() {
 }
 
 // Function for removing departments
-async function getRemoveDepartmentInfo() {
-    const departments= await getDepartmentId();
-    return inquirer
-    .prompt([
+// async function getRemoveDepartmentInfo() {
+//     const departments= await getDepartmentId();
+//     return inquirer
+//     .prompt([
     
-        {
-            type: "list",
-            message: "Which department do you want to remove?",
-            name: "departmentName",
-            choices: [
-                ...departments
-            ]
-        }
-    ])
-}
+//         {
+//             type: "list",
+//             message: "Which department do you want to remove?",
+//             name: "departmentName",
+//             choices: [
+//                 ...departments
+//             ]
+//         }
+//     ])
+// }
+
 // Function for adding new dept
 async function getDepartmentInfo() {
     return inquirer
@@ -349,6 +350,7 @@ async function getUpdateInfo() {
 
 }
 
+// Switch statements for selecting code to be executed
 async function main() {
     let exitLoop = false;
     while(!exitLoop) {
@@ -361,9 +363,16 @@ async function main() {
                 break;
             }
 
-            case 'Remove department': {
-                const removeDepartmentN = await getRemoveDepartmentInfo();
-                await removeDepartment(removeDepartmentN);
+            // case 'Remove department': {
+            //     const removeDepartmentN = await getRemoveDepartmentInfo();
+            //     await removeDepartment(removeDepartmentN);
+            //     break;
+            // }
+
+            case 'Add role': {
+                const newRole = await getRoleInfo();
+                console.log("add a role");
+                await addRole(newRole);
                 break;
             }
 
@@ -372,13 +381,6 @@ async function main() {
                 console.log("add an employee");
                 console.log(newEmployee);
                 await addEmployee(newEmployee);
-                break;
-            }
-
-            case 'Add role': {
-                const newRole = await getRoleInfo();
-                console.log("add a role");
-                await addRole(newRole);
                 break;
             }
 
